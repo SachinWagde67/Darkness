@@ -9,6 +9,7 @@ TagManager:
   - door
   - movingplatform
   - sword
+  - instruction
   layers:
   - Default
   - TransparentFX

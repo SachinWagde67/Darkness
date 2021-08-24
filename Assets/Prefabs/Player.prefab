@@ -268,10 +268,9 @@ MonoBehaviour:
   FallCheck: {fileID: 5044071809205767386}
   anim: {fileID: 5044071808714005278}
   swordCollider: {fileID: 208721991}
-  GameOverCanvas: {fileID: 2735970539720903042, guid: 9b75de6acccc2c74d930e558f9def55e,
-    type: 3}
-  GameCompleteCanvas: {fileID: 8963709854018539322, guid: 24ce1fefb3784c64fa4e6b1980830417,
-    type: 3}
+  GameOverCanvas: {fileID: 0}
+  GameCompleteCanvas: {fileID: 0}
+  GamePauseCanvas: {fileID: 0}
 --- !u!114 &5044071807349834824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +307,7 @@ MonoBehaviour:
   - {x: -0.06087603, y: 0.04896619, z: 0}
   m_ShapePathHash: 1333485740
   m_Mesh: {fileID: 0}
-  m_InstanceId: -103706
+  m_InstanceId: -8744
 --- !u!1 &5044071809129345432
 GameObject:
   m_ObjectHideFlags: 0

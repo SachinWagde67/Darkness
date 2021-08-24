@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -13,6 +12,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private GameObject swordCollider;
 	[SerializeField] private GameObject GameOverCanvas;
 	[SerializeField] private GameObject GameCompleteCanvas;
+	[SerializeField] private GameObject GamePauseCanvas;
 
 	private bool Grounded;
 	const float GroundedRadius = .05f; 
@@ -25,10 +25,12 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Awake()
 	{
+		speed = 20f;
 		rb = GetComponent<Rigidbody2D>();
 		swordCollider.SetActive(false);
 		GameOverCanvas.SetActive(false);
 		GameCompleteCanvas.SetActive(false);
+		GamePauseCanvas.SetActive(false);
 	}
 
 	private void Update() 
@@ -134,7 +136,7 @@ public class CharacterController2D : MonoBehaviour
 	public void Death()
     {
 		anim.SetTrigger("death");
-		speed = 0f;
+		StopMovement();
 		GameOverCanvas.SetActive(true);
 		GameOverCanvas.GetComponent<Animator>().SetTrigger("gameover");
     }
@@ -145,6 +147,12 @@ public class CharacterController2D : MonoBehaviour
         {
 			GameCompleteCanvas.SetActive(true);
 			GameCompleteCanvas.GetComponent<Animator>().SetTrigger("gamecomplete");
+			Invoke(nameof(StopMovement), 0.5f);
         }
+    }
+
+	private void StopMovement()
+    {
+		speed = 0;
     }
 }
