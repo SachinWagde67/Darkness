@@ -143,11 +143,15 @@ public class CharacterController2D : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("door"))
+        if(other.CompareTag("teleporter"))
         {
 			GameCompleteCanvas.SetActive(true);
 			GameCompleteCanvas.GetComponent<Animator>().SetTrigger("gamecomplete");
 			Invoke(nameof(StopMovement), 0.5f);
+        }
+		if(other.CompareTag("axe") || other.CompareTag("blade"))
+        {
+			Death();
         }
     }
 

@@ -22,7 +22,7 @@ public class GamePause : MonoBehaviour
     {
         GamePauseCanvas.SetActive(true);
         GamePauseCanvas.GetComponent<Animator>().SetTrigger("gamepause");
-        Invoke(nameof(gamePause),1.2f);
+        Invoke(nameof(gamePause),1.1f);
     }
 
     private void gamePause()

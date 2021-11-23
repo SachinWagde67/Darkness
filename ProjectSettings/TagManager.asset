@@ -6,10 +6,12 @@ TagManager:
   tags:
   - light
   - blocker
-  - door
   - movingplatform
   - sword
   - instruction
+  - teleporter
+  - axe
+  - blade
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Light
   - Blocker
   - Player
-  - 
+  - Rope
   - 
   - 
   - 

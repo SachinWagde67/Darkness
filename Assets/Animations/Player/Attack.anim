@@ -22,25 +22,25 @@ AnimationClip:
     - time: 0
       value: {fileID: 8822046848726840433, guid: bdcabf9db66e4b946b15f4d159bb7cdc,
         type: 3}
-    - time: 0.11666667
+    - time: 0.1
       value: {fileID: 3909648586501770998, guid: bdcabf9db66e4b946b15f4d159bb7cdc,
         type: 3}
-    - time: 0.21666667
+    - time: 0.2
       value: {fileID: 3772943146004346442, guid: bdcabf9db66e4b946b15f4d159bb7cdc,
         type: 3}
-    - time: 0.33333334
+    - time: 0.3
       value: {fileID: 4417013908797395588, guid: bdcabf9db66e4b946b15f4d159bb7cdc,
         type: 3}
-    - time: 0.45
+    - time: 0.4
       value: {fileID: -5176357189896373642, guid: bdcabf9db66e4b946b15f4d159bb7cdc,
         type: 3}
-    - time: 0.56666666
+    - time: 0.5
       value: {fileID: 208807673859263030, guid: bdcabf9db66e4b946b15f4d159bb7cdc,
         type: 3}
-    - time: 0.6666667
+    - time: 0.6
       value: {fileID: -2853903364276964733, guid: bdcabf9db66e4b946b15f4d159bb7cdc,
         type: 3}
-    - time: 0.78333336
+    - time: 0.7
       value: {fileID: 7669415146756810826, guid: bdcabf9db66e4b946b15f4d159bb7cdc,
         type: 3}
     attribute: m_Sprite
@@ -75,7 +75,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8
+    m_StopTime: 0.71666664
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -95,14 +95,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.33333334
+  - time: 0.3
     functionName: EnableSword
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.45
+  - time: 0.4
     functionName: DisableSword
     data: 
     objectReferenceParameter: {fileID: 0}

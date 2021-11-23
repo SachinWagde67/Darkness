@@ -67,8 +67,9 @@ PolygonCollider2D:
       - {x: 0.18878779, y: 0.106013425}
       - {x: 0.16168675, y: 0.12985156}
       - {x: 0.13032393, y: 0.1453936}
-      - {x: 0.10761552, y: 0.14693081}
-      - {x: 0.103445984, y: -0.14236465}
+      - {x: 0.107309915, y: 0.14540239}
+      - {x: 0.04511751, y: 0.14479637}
+      - {x: 0.042460322, y: -0.14547706}
 --- !u!1 &5044071808539409551
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +131,7 @@ Transform:
   m_GameObject: {fileID: 5044071808714005269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.959, y: 2.64, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 5.2, y: 5.2, z: 1}
   m_Children:
   - {fileID: 5044071809129345433}
   - {fileID: 5044071809205767386}
@@ -177,7 +178,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -7783813424544337531, guid: bdcabf9db66e4b946b15f4d159bb7cdc,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -258,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe8cd489f127f8408cc4318cfd10dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 3.6
+  JumpForce: 3.7
   speed: 20
   AirControl: 1
   WhatIsGround:
@@ -307,7 +308,7 @@ MonoBehaviour:
   - {x: -0.06087603, y: 0.04896619, z: 0}
   m_ShapePathHash: 1333485740
   m_Mesh: {fileID: 0}
-  m_InstanceId: -8744
+  m_InstanceId: -1692
 --- !u!1 &5044071809129345432
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5044071809129345432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1452, z: 0}
+  m_LocalPosition: {x: 0.022, y: -0.1452, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5044071808714005267}
