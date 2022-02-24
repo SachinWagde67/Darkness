@@ -9,23 +9,15 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Vector3 offset;
     [SerializeField] private float smoothFactor;
 
-    [SerializeField]
-    private float xMin;
-    [SerializeField]
-    private float xMax;
-    [SerializeField]
-    private float yMin;
-    [SerializeField]
-    private float yMax;
+    [SerializeField] private float xMin;
+    [SerializeField] private float xMax;
+    [SerializeField] private float yMin;
+    [SerializeField] private float yMax;
 
-    [SerializeField]
-    private float playerxMin;
-    [SerializeField]
-    private float playerxMax;
-    [SerializeField]
-    private float playeryMin;
-    [SerializeField]
-    private float playeryMax;
+    [SerializeField] private float playerxMin;
+    [SerializeField] private float playerxMax;
+    [SerializeField] private float playeryMin;
+    [SerializeField] private float playeryMax;
 
     void LateUpdate()
     {

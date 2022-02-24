@@ -43,10 +43,10 @@ TextureImporter:
     second: Medieval_props_free_12
   - first:
       213: 21300026
-    second: Medieval_props_free_13
+    second: Rope_Bottom
   - first:
       213: 21300028
-    second: Medieval_props_free_14
+    second: Rope_Top
   - first:
       213: 21300030
     second: Medieval_props_free_15
@@ -74,6 +74,15 @@ TextureImporter:
   - first:
       213: 21300046
     second: Medieval_props_free_23
+  - first:
+      213: 1965671581986798914
+    second: Rope_Full
+  - first:
+      213: 4809227529314926895
+    second: Rope_Mid
+  - first:
+      213: 9192292223520985888
+    second: Rope_Full
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -432,13 +441,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medieval_props_free_13
+      name: Rope_Bottom
       rect:
         serializedVersion: 2
         x: 131
         y: 68
         width: 19
-        height: 40
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -453,13 +462,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medieval_props_free_14
+      name: Rope_Top
       rect:
         serializedVersion: 2
-        x: 161
-        y: 54
+        x: 131
+        y: 88
         width: 19
-        height: 54
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -658,6 +667,48 @@ TextureImporter:
       bones: []
       spriteID: f4cc896da990e2d4187131da4fa92262
       internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rope_Full
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 54
+        width: 19
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d3765a3e7774b10800000000000000
+      internalID: 1965671581986798914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rope_Mid
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 74
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2188d025fecdb240800000000000000
+      internalID: 4809227529314926895
       vertices: []
       indices: 
       edges: []
