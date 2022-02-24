@@ -130,8 +130,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 4.567198, y: 9.936115}
-      - {x: -4.3408146, y: 9.929009}
+    - - {x: 4.657688, y: 9.910718}
+      - {x: -4.736198, y: 9.929009}
       - {x: 0.0020828843, y: 0.39272392}
 --- !u!114 &1900194845222064907
 MonoBehaviour:
@@ -148,5 +148,4 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 3072
-  Player: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 5044071808714005276, guid: a20ca32880260024eb897aff1f391055, type: 3}

@@ -5,12 +5,10 @@ using UnityEngine;
 public class Light : MonoBehaviour
 {
     [SerializeField] private LayerMask playerLayer;
-    [SerializeField] private Animator Player;
     [SerializeField] private CharacterController2D player;
 
     private void Awake()
     {
-        Player = GameObject.Find("Player").GetComponent<Animator>();
         player = GameObject.Find("Player").GetComponent<CharacterController2D>();
     }
 
@@ -25,9 +23,7 @@ public class Light : MonoBehaviour
             if (hitlight.collider != null && hitlight.collider.CompareTag("Player"))
             {
                 Debug.DrawRay(transform.position, rayDirection, Color.red, 2f);
-                Debug.Log("die");
-                Player.SetTrigger("death");
-                player.speed = 0;
+                player.Death();
             }
         }
     }

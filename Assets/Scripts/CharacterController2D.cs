@@ -10,7 +10,9 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform GroundCheck;
 	[SerializeField] private Transform FallCheck;
 	[SerializeField] private Animator anim;
-	[SerializeField] private LayerMask LayerLight;
+	[SerializeField] private GameObject swordCollider;
+	[SerializeField] private GameObject GameOverCanvas;
+	[SerializeField] private GameObject GameCompleteCanvas;
 
 	private bool Grounded;
 	const float GroundedRadius = .05f; 
@@ -24,6 +26,9 @@ public class CharacterController2D : MonoBehaviour
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		swordCollider.SetActive(false);
+		GameOverCanvas.SetActive(false);
+		GameCompleteCanvas.SetActive(false);
 	}
 
 	private void Update() 
@@ -115,4 +120,31 @@ public class CharacterController2D : MonoBehaviour
     {
 		anim.SetBool("fall", true);
 	}
+
+	private void EnableSword()
+    {
+		swordCollider.SetActive(true);
+    }
+
+	private void DisableSword()
+	{
+		swordCollider.SetActive(false);
+	}
+
+	public void Death()
+    {
+		anim.SetTrigger("death");
+		speed = 0f;
+		GameOverCanvas.SetActive(true);
+		GameOverCanvas.GetComponent<Animator>().SetTrigger("gameover");
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("door"))
+        {
+			GameCompleteCanvas.SetActive(true);
+			GameCompleteCanvas.GetComponent<Animator>().SetTrigger("gamecomplete");
+        }
+    }
 }
