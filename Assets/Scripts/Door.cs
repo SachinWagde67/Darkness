@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    
-
     [SerializeField] private GameObject player;
     [SerializeField] private SpriteRenderer play;
     [SerializeField] private GameObject doorIcon;
@@ -61,7 +59,4 @@ public class Door : MonoBehaviour
         yield return new WaitForSeconds(1f);
         anim.SetTrigger("end");
     }
-
-
-
 }

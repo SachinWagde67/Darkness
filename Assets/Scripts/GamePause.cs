@@ -10,17 +10,18 @@ public class GamePause : MonoBehaviour
     public void ResumeBtn()
     {
         Time.timeScale = 1f;
-        GamePauseCanvas.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
     public void ExitBtn()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Lobby");
     }
 
     public void PauseBtn()
     {
-        GamePauseCanvas.SetActive(true);
+        this.gameObject.SetActive(true);
         GamePauseCanvas.GetComponent<Animator>().SetTrigger("gamepause");
         Invoke(nameof(gamePause),1.1f);
     }
@@ -28,6 +29,5 @@ public class GamePause : MonoBehaviour
     private void gamePause()
     {
         Time.timeScale = 0f;
-
     }
 }

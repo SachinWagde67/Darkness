@@ -11,14 +11,12 @@ public class Axe : MonoBehaviour
     [SerializeField] float leftAngle;
     [SerializeField] float rightAngle;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         movingClockwise = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();

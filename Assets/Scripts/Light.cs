@@ -7,11 +7,6 @@ public class Light : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private CharacterController2D player;
 
-    private void Awake()
-    {
-        player = GameObject.Find("Player").GetComponent<CharacterController2D>();
-    }
-
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
