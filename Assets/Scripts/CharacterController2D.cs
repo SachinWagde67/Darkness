@@ -25,7 +25,6 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Awake()
 	{
-		speed = 20f;
 		rb = GetComponent<Rigidbody2D>();
 		swordCollider.SetActive(false);
 		GameOverCanvas.SetActive(false);
