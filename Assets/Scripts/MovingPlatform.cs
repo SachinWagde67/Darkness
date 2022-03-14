@@ -9,7 +9,6 @@ public class MovingPlatform : MonoBehaviour
  
     private int currentIndex = 0;
 
-    // Update is called once per frame
     void Update()
     {
         if(Vector2.Distance(waypoint[currentIndex].transform.position,transform.position) < 0.1f)
@@ -21,5 +20,21 @@ public class MovingPlatform : MonoBehaviour
             }
         }
         transform.position = Vector2.MoveTowards(transform.position, waypoint[currentIndex].transform.position, speed * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.GetComponent<CharacterController2D>() != null)
+        {
+            other.gameObject.transform.SetParent(transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.GetComponent<CharacterController2D>() != null)
+        {
+            other.gameObject.transform.SetParent(null);
+        }
     }
 }

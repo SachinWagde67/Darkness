@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Light : MonoBehaviour
 {
@@ -9,15 +7,14 @@ public class Light : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.GetComponent<CharacterController2D>() != null)
         {
             float distance = Vector3.Distance(transform.position, other.transform.position);
             Vector2 rayDirection = (other.transform.position - transform.position);
             RaycastHit2D hitlight = Physics2D.Raycast(transform.position, rayDirection, distance, playerLayer);
             
-            if (hitlight.collider != null && hitlight.collider.CompareTag("Player"))
+            if (hitlight.collider != null && hitlight.collider.GetComponent<CharacterController2D>() != null)
             {
-                Debug.DrawRay(transform.position, rayDirection, Color.red, 2f);
                 player.Death();
             }
         }
