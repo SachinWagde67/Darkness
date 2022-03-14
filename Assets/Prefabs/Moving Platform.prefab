@@ -96,7 +96,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &812318989597498830
 Transform:
   m_ObjectHideFlags: 0
@@ -317,7 +317,6 @@ GameObject:
   - component: {fileID: 812318990576633994}
   - component: {fileID: 812318990576634037}
   - component: {fileID: 812318990576634036}
-  - component: {fileID: 812318990576634038}
   - component: {fileID: 812318990576634039}
   m_Layer: 10
   m_Name: Platform
@@ -385,18 +384,6 @@ MonoBehaviour:
   waypoint:
   - {fileID: 812318990699049017}
   - {fileID: 812318989869995906}
---- !u!114 &812318990576634038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812318990576633995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2a8a1c082046504b9214ae7c92499de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &812318990576634039
 MonoBehaviour:
   m_ObjectHideFlags: 0
