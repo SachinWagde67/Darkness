@@ -7,16 +7,12 @@ public class Light : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-<<<<<<< HEAD:Assets/Scripts/Light.cs
-        if (other.GetComponent<CharacterController2D>() != null)
-=======
         if (other.transform.GetComponent<CharacterController2D>() != null)
->>>>>>> Feature3-Optimization:Assets/Scripts/Light/Light.cs
         {
             float distance = Vector3.Distance(transform.position, other.transform.position);
             Vector2 rayDirection = (other.transform.position - transform.position);
             RaycastHit2D hitlight = Physics2D.Raycast(transform.position, rayDirection, distance, playerLayer);
-            
+
             if (hitlight.collider != null && hitlight.collider.GetComponent<CharacterController2D>() != null)
             {
                 player.Death();
