@@ -13,7 +13,7 @@ public class Instructions : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if(other.gameObject.GetComponent<CharacterController2D>() != null)
         {
             InstructionText.SetActive(true);
         }
@@ -21,7 +21,7 @@ public class Instructions : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if(other.gameObject.GetComponent<CharacterController2D>() != null)
         {
             InstructionText.SetActive(false);
             Destroy(this.gameObject);
