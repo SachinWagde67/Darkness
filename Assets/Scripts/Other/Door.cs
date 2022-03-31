@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
+    [SerializeField] private CharacterController2D player;
+
     [SerializeField] private SpriteRenderer play;
-    [SerializeField] private GameObject doorIcon;
     [SerializeField] private Transform WayPoint;
     [SerializeField] private GameObject CameraDisable;
     [SerializeField] private GameObject CameraEnable;
     [SerializeField] private Animator anim;
 
-    private bool isDoor = false;
+    public GameObject doorIcon;
+    public bool isDoor = false;
 
     private void Awake()
     {
@@ -23,7 +22,7 @@ public class Door : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && isDoor)
         {
-            StartCoroutine(DoorAnim());
+            DoorAnim();
         }
     }
 
@@ -44,19 +43,21 @@ public class Door : MonoBehaviour
         }
     }
 
-    private IEnumerator DoorAnim()
+    private async void DoorAnim()
     {
+        player.gameObject.SetActive(false);
+        await new WaitForSeconds(0.1f);
 
-        player.SetActive(false);
-        yield return new WaitForSeconds(0.1f);
         anim.SetTrigger("play");
-        yield return new WaitForSeconds(1f);
+        await new WaitForSeconds(1f);
+
         CameraDisable.SetActive(false);
         CameraEnable.SetActive(true);
-        player.transform.position = WayPoint.transform.position;
-        player.SetActive(true);
+        player.gameObject.transform.position = WayPoint.transform.position;
+        player.gameObject.SetActive(true);
         play.enabled = true;
-        yield return new WaitForSeconds(1f);
+        await new WaitForSeconds(1f);
+
         anim.SetTrigger("end");
     }
 }

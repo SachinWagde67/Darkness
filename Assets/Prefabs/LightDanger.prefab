@@ -148,4 +148,4 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 3072
-  player: {fileID: 5044071808714005276, guid: a20ca32880260024eb897aff1f391055, type: 3}
+  player: {fileID: 0}

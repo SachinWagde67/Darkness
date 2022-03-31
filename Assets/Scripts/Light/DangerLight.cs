@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-public class Light : MonoBehaviour
-{
+public class DangerLight : MonoBehaviour
+{ 
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private CharacterController2D player;
 

@@ -2,160 +2,123 @@
 
 public class CharacterController2D : MonoBehaviour
 {
-	[SerializeField] private float JumpForce = 400f;
-	[SerializeField] public float speed;	
-	[SerializeField] private bool AirControl = false;							
-	[SerializeField] private LayerMask WhatIsGround;							
-	[SerializeField] private Transform GroundCheck;
-	[SerializeField] private Transform FallCheck;
-	[SerializeField] private Animator anim;
-	[SerializeField] private GameObject swordCollider;
-	[SerializeField] private GameObject GameOverCanvas;
-	[SerializeField] private GameObject GameCompleteCanvas;
-	[SerializeField] private GameObject GamePauseCanvas;
+    [SerializeField] private float jumpForce;
+    [SerializeField] public float moveSpeed;
+    [SerializeField] private float groundRadius;
+    [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private GameObject swordCollider;
+    [SerializeField] private GameManager gameManager;
 
-	private bool Grounded;
-	const float GroundedRadius = .05f; 
-	const float FallRadius = .05f;
-	private float horizontal;
-	private Rigidbody2D rb;
-	private bool FacingRight = true;
-	private bool jump = false;
-	private Vector3 Velocity = Vector3.zero;
+    private float moveInput;
+    [SerializeField] private bool isGrounded;
+    private Rigidbody2D rb;
+    private Animator anim;
 
-	private void Awake()
-	{
-		rb = GetComponent<Rigidbody2D>();
-		swordCollider.SetActive(false);
-		GameOverCanvas.SetActive(false);
-		GameCompleteCanvas.SetActive(false);
-		GamePauseCanvas.SetActive(false);
-	}
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+    }
 
-	private void Update() 
-	{
-		horizontal = Input.GetAxisRaw("Horizontal") * speed;
-		anim.SetFloat("speed", Mathf.Abs(horizontal));
+    private void Update()
+    {
+        playerMove();
+        playerJump();
+        playerFlip();
+        playerAttack();
+    }
 
-		if (Input.GetButtonDown("Jump"))
-		{
-			jump = true;
-			anim.SetBool("jump", true);
-		}
-		if (Input.GetKeyDown(KeyCode.Mouse0))
-		{
-			if (!jump)
-			{
-				anim.SetTrigger("attack");
-				speed = 0f;
-				Invoke(nameof(SpeedChange), 0.7f);
-			}
-		}
-	}
-
-	private void FixedUpdate()
-	{
-		bool wasGrounded = Grounded;
-		Grounded = false;
-
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(GroundCheck.position, GroundedRadius, WhatIsGround);
-		for (int i = 0; i < colliders.Length; i++)
-		{
-			if (colliders[i].gameObject != gameObject)
-			{
-				Grounded = true;
-				if (!wasGrounded)
-				{
-					anim.SetBool("jump", false);
-				}
-			}
-		}
-        Collider2D[] fallcollider = Physics2D.OverlapCircleAll(FallCheck.position, FallRadius, WhatIsGround);
-        for (int i = 0; i < fallcollider.Length; i++)
+    private void playerAttack()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (fallcollider[i].gameObject != gameObject)
+            if (isGrounded)
             {
-                anim.SetBool("fall", false);
-                anim.SetTrigger("land");
+                anim.SetTrigger("attack");
+                moveSpeed = 0f;
+                SpeedChange();
             }
         }
-        Move(horizontal * Time.fixedDeltaTime, jump);
-		jump = false;
-	}
-
-
-	public void Move(float move, bool jump)
-	{
-		if (Grounded || AirControl)
-		{
-			Vector3 targetVelocity = new Vector2(move * 10f, rb.velocity.y);
-			rb.velocity = targetVelocity;
-
-			if (move > 0 && !FacingRight)
-			{
-				Flip();
-			}
-			else if (move < 0 && FacingRight)
-			{
-				Flip();
-			}
-		}
-		if (Grounded && jump)
-		{
-			Grounded = false;
-			rb.AddForce(new Vector2(0f, JumpForce * 100f));
-		}
-	}
-	private void Flip()
-	{
-		FacingRight = !FacingRight;
-		transform.Rotate(0, 180, 0);
-	}
-
-	private void SpeedChange()
-    {
-		speed = 20f;
     }
 
-	private void Fall()
+    private void playerJump()
     {
-		anim.SetBool("fall", true);
-	}
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
-	private void EnableSword()
-    {
-		swordCollider.SetActive(true);
+        if (isGrounded)
+        {
+            anim.SetBool("fall", false);
+        }
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = Vector2.up * jumpForce;
+            anim.SetTrigger("jump");
+        }
     }
 
-	private void DisableSword()
-	{
-		swordCollider.SetActive(false);
-	}
-
-	public void Death()
+    private void playerMove()
     {
-		anim.SetTrigger("death");
-		StopMovement();
-		GameOverCanvas.SetActive(true);
-		GameOverCanvas.GetComponent<Animator>().SetTrigger("gameover");
+        moveInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        anim.SetFloat("speed", Mathf.Abs(moveInput));
+    }
+
+    private void playerFlip()
+    {
+        if (moveInput > 0)
+        {
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        }
+        else if (moveInput < 0)
+        {
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
+    }
+
+    private async void SpeedChange()
+    {
+        await new WaitForSeconds(0.7f);
+        moveSpeed = 5f;
+    }
+
+    private void Fall()
+    {
+        anim.SetBool("fall", true);
+    }
+
+    private void EnableSword()
+    {
+        swordCollider.SetActive(true);
+    }
+
+    private void DisableSword()
+    {
+        swordCollider.SetActive(false);
+    }
+
+    public void Death()
+    {
+        anim.SetTrigger("death");
+        StopMovement();
+        gameManager.onPlayerDeath();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("teleporter"))
+        if (other.CompareTag("teleporter"))
         {
-			GameCompleteCanvas.SetActive(true);
-			GameCompleteCanvas.GetComponent<Animator>().SetTrigger("gamecomplete");
-			Invoke(nameof(StopMovement), 0.5f);
+            gameManager.onPlayerWin();
+            StopMovement();
         }
-		if(other.CompareTag("axe") || other.CompareTag("blade"))
+        if (other.CompareTag("axe") || other.CompareTag("blade"))
         {
-			Death();
+            Death();
         }
     }
 
-	private void StopMovement()
+    private void StopMovement()
     {
-		speed = 0;
+        moveSpeed = 0;
     }
 }

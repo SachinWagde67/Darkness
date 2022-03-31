@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5044071808714005267}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &208721993
 PolygonCollider2D:
@@ -98,7 +98,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5044071808714005267}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5044071808714005269
 GameObject:
@@ -134,7 +134,6 @@ Transform:
   m_LocalScale: {x: 5.2, y: 5.2, z: 1}
   m_Children:
   - {fileID: 5044071809129345433}
-  - {fileID: 5044071809205767386}
   - {fileID: 5044071808539409548}
   - {fileID: 208721992}
   m_Father: {fileID: 0}
@@ -259,19 +258,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe8cd489f127f8408cc4318cfd10dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 3.7
-  speed: 20
-  AirControl: 1
-  WhatIsGround:
+  jumpForce: 8
+  moveSpeed: 5
+  groundRadius: 0.3
+  whatIsGround:
     serializedVersion: 2
-    m_Bits: 1280
-  GroundCheck: {fileID: 5044071809129345433}
-  FallCheck: {fileID: 5044071809205767386}
-  anim: {fileID: 5044071808714005278}
+    m_Bits: 256
+  groundCheck: {fileID: 5044071809129345433}
   swordCollider: {fileID: 208721991}
-  GameOverCanvas: {fileID: 0}
-  GameCompleteCanvas: {fileID: 0}
-  GamePauseCanvas: {fileID: 0}
+  gameManager: {fileID: 0}
+  isGrounded: 0
 --- !u!114 &5044071807349834824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +304,7 @@ MonoBehaviour:
   - {x: -0.06087603, y: 0.04896619, z: 0}
   m_ShapePathHash: 1333485740
   m_Mesh: {fileID: 0}
-  m_InstanceId: -21292
+  m_InstanceId: -1374
 --- !u!1 &5044071809129345432
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,34 +334,4 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5044071808714005267}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5044071809205767389
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5044071809205767386}
-  m_Layer: 11
-  m_Name: FallCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5044071809205767386
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5044071809205767389}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1452, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5044071808714005267}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
