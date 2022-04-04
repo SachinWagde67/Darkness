@@ -5,7 +5,7 @@ A 2D platformer game in which you have to complete the level without touching th
 - Player movement using WASD keys.
 - Player attack using Left Mouse button.
 
-# Features of the game
+# Implementation annd Design patterns used
 - Used Lightings.
 - Used 2D Universal Rendering Pipeline.
 - Used Shadow-Caster for the shadows.
